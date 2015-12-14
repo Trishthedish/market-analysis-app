@@ -1,0 +1,2 @@
+# market-analysis-app
+You've been hired by a startup called BusMall, whose product is similar to the SkyMall catalog found in the seatback pockets on airplanes. BusMall wants you to build an app that displays potential products to individuals focus groups (three products at a time), has the group members rank those three products in order of interest, and then store, calculate, and visually display the resulting data. 
