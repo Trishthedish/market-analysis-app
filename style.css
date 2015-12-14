@@ -1,0 +1,10 @@
+body {
+  background-image: url("images/art/backgroundPic.jpg");
+
+  color: #ffd633;
+  /*color above = golden yellow*/
+
+/*Now these colors aren't working. When I add the specialized sketeton grid.BAHh! */
+  font-weight: bold;
+  font-size: 40px;
+}
