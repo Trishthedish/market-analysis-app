@@ -25,6 +25,9 @@ function Product(name, path) {
 
 /* Object Literal Notation (Singular instance of an Object. Set the properties & values for the data you want to track; totalClicks, product objects, and html elements. )*/
  var productRank = {
+  //  tallyVotes: function(){
+  //    return totalClicks =
+  //  }
    totalClicks: 0,
    leftObj: null,
    midObj: null,
@@ -61,60 +64,72 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
     productRank.rightEl.id = productRank.rightObj.name;
 
   },
-    showResults: function () {
-      if ('there is no remainder when dividing the total clicks by 15') {
-        //use the hidden attribute of the button to show/hide
-        // this also anothe area needed to work out.
-      }
 
+/* //('there is no remainder when dividing the total clicks by 15)
+        //use the hidden attribute of the button to show/hide
+        //Trish: spend time with this */
+    showResults: function() {
+    var buttonResult = document.getElementById("results");
+      if (totalClicks % 15 === 0) {
+        buttonResult.hidden = false;
+    } else {
+      buttonResult.hidden = true;
     }
+  }
 };
 
 /* This is one of 3 event listeners you will need to write, which listens for clicks on each element */
 //eventListener 1
-productRank.leftEl.addEventListner('click', function(){
-  //Increment the object's tally property and productRank's total clicks by 1
-    productRank.tallyVotes();
-    productRank.leftObj.tally +=1;
-    productRank.totalClicks += 1;
-    productRank.displayImages();
-//eventListener 2
-    productRank.midEl.addEventListner('click', function(){
-      productRank.tallyVotes();
-      productRank.midObj.tally +=1;
-      productRank.totalClicks += 1;
-      productRank.displayImages();
-//eventListener 3
-    productRank.rightEl.addEventListner('click', function(){
-      productRank.tallyVotes();
-      productRank.rightObj.tally +=1;
-      productRank.totalClicks += 1;
-      //call the displayImages method to reroll three new images.
-      productRank.displayImages();
+// Building a function that will add up all the tayllyVotes for each obj/img
 
-    // showResults: function() {
-    //   if(this.total === 15) {
-//call the showResults method to check whether there have been 15 clicks
-    // stop and show results?
 
-    // ???? area that needs to be drawn out.
-      // }
-    // }
+productRank.leftEl.addEventListener('click', function(){
+//Increment the object's tally property and productRank's total clicks by 1
+// This is where the chunk of code will needed be extended trish. Things are being tracked by usign them to display results is a bit harder to implement. 
+// for (var i = 0; i < productNames.length; i ++) {
+//
+//   }
 
-      });
-
-    })
-
+  productRank.leftObj.tally +=1;
+  productRank.totalClicks += 1;
+  productRank.displayImages();
 });
+
+//eventListener 2
+// productRank.midEl.addEventListener('click', function("imgTwo"){
+//    productRank.midObj.tally +=1;
+//    productRank.totalClicks += 1;
+//    productRank.displayImages();
+// });
+// //
+// //eventListener 3
+// productRank.rightEl.addEventListener('click', function(){
+//   productRank.tallyVotes();
+//   productRank.rightObj.tally +=1;
+//   productRank.totalClicks += 1;
+//
+// //call the displayImages method to reroll three new images.
+//  });
 
 productRank.displayImages();
 
-// productRank.leftEl.addEventListner('click', function() { // must repeat this 2 more times.
+// productRank.leftEl.addEventListener('click', function() { // must repeat this 2 more times.
 //   //productRank.tallyVotes();
 //   productRank.leftObj.tally += 1;
 //   productRank.totalClicks += 1;
 //   productRank.displayImages();
 
 
-//   showResults: function() {
-//     if(this.total) {
+
+
+
+
+
+// function tallyVotes();
+// productRank.leftObj.tally += 1;
+// productRank.totalClick +=1;
+// productRank.displayImages();
+//
+// productRank.midObj.tally += 1;
+//
+// product.rightObj.tally += 1;
