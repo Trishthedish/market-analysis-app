@@ -1,25 +1,28 @@
 //Creating a chart here.
 var canvas = document.getElementById("myChart");
+//
+// var data = {
+//     labels: ["bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "unicorn", "water_can", "wine_glass"],
+//     datasets: [
+//         {
+//             label: "View Clickage",
+//             fillColor: "rgba(220,220,220,0.5)",
+//             strokeColor: "rgba(220,220,220,0.8)",
+//             highlightFill: "rgba(220,220,220,0.75)",
+//             highlightStroke: "rgba(220,220,220,1)",
+//             data: []
+//         }
+//     ]
+// };
 
-var data = {
-    labels: ["bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "unicorn", "water_can", "wine_glass"],
-    datasets: [
-        {
-            label: "View Clickage",
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: []
-        }
-    ]
-};
-
-function buildData() {
-  for(var i = 0; i < allProducts.length; i ++) {
-  data.datasets[0].data.push(allProducts[i].tally);
-  }
-};
+// function buildData() {
+// data.datasets[0].data = [];
+//   for(var i = 0; i < allProducts.length; i ++) {
+//   data.datasets[0].data.push(allProducts[i].tally);
+//
+//
+//   }
+// };
 
 var context = document.getElementById("myChart").getContext("2d");
 
@@ -29,8 +32,6 @@ canvas.onclick = function(event){
    var activebars = myBarChart.getBarsAtEvent(event);
 
  };
-
-
 
 /*Create one array to hold allProduct objects */
 var allProducts = [];
