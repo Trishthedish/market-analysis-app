@@ -25,9 +25,6 @@ function Product(name, path) {
 
 /* Object Literal Notation (Singular instance of an Object. Set the properties & values for the data you want to track; totalClicks, product objects, and html elements. )*/
  var productRank = {
-  //  tallyVotes: function(){
-  //    return totalClicks =
-  //  }
    totalClicks: 0,
    leftObj: null,
    midObj: null,
@@ -70,7 +67,9 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
         //Trish: spend time with this */
     showResults: function() {
     var buttonResult = document.getElementById("results");
-      if (totalClicks % 15 === 0) {
+    console.log(buttonResult);
+    console.log(productRank.totalClicks);
+      if (productRank.totalClicks % 15 === 0) {
         buttonResult.hidden = false;
     } else {
       buttonResult.hidden = true;
@@ -81,43 +80,37 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
 /* This is one of 3 event listeners you will need to write, which listens for clicks on each element */
 //eventListener 1
 // Building a function that will add up all the tayllyVotes for each obj/img
+///Increment the object's tally property and productRank's total clicks by 1
+//call the displayImages method to reroll three new images.
+//DONT TRISH 85- 93.
+  productRank.displayImages();
 
-
-productRank.leftEl.addEventListener('click', function(){
-//Increment the object's tally property and productRank's total clicks by 1
-// This is where the chunk of code will needed be extended trish. Things are being tracked by usign them to display results is a bit harder to implement. 
-// for (var i = 0; i < productNames.length; i ++) {
-//
-//   }
-
-  productRank.leftObj.tally +=1;
+  productRank.leftEl.addEventListener('click', function(){
+  productRank.leftObj.tally += 1;
   productRank.totalClicks += 1;
   productRank.displayImages();
+  productRank.showResults();
+
 });
 
 //eventListener 2
-// productRank.midEl.addEventListener('click', function("imgTwo"){
-//    productRank.midObj.tally +=1;
-//    productRank.totalClicks += 1;
-//    productRank.displayImages();
-// });
-// //
+  productRank.midEl.addEventListener('click', function(){
+  productRank.midObj.tally += 1;
+  productRank.totalClicks += 1;
+  productRank.displayImages();
+  productRank.showResults();
+ });
+
 // //eventListener 3
-// productRank.rightEl.addEventListener('click', function(){
-//   productRank.tallyVotes();
-//   productRank.rightObj.tally +=1;
-//   productRank.totalClicks += 1;
-//
-// //call the displayImages method to reroll three new images.
-//  });
+  productRank.rightEl.addEventListener('click', function(){
+  productRank.rightObj.tally += 1;
+  productRank.totalClicks += 1;
+  productRank.displayImages();
+  productRank.showResults();
 
-productRank.displayImages();
+ });
 
-// productRank.leftEl.addEventListener('click', function() { // must repeat this 2 more times.
-//   //productRank.tallyVotes();
-//   productRank.leftObj.tally += 1;
-//   productRank.totalClicks += 1;
-//   productRank.displayImages();
+
 
 
 
@@ -127,7 +120,7 @@ productRank.displayImages();
 
 // function tallyVotes();
 // productRank.leftObj.tally += 1;
-// productRank.totalClick +=1;
+// productRank.totalClicks +=1;
 // productRank.displayImages();
 //
 // productRank.midObj.tally += 1;

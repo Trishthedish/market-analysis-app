@@ -12,4 +12,7 @@ body {
 img {
   width: 290px;
   height: 290px;
+  border-style: groove;
+  border-width: medium;
+  border
 }
