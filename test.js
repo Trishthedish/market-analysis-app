@@ -5,20 +5,22 @@ var canvas = document.getElementById("myChart");
      labels: ["bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "unicorn", "water_can", "wine_glass"],
      datasets: [
          {
-            label: "View Clickage", 
-             fillColor: "rgba(255,20,147,1)", // colorDarkPink fills in bar
+            label: "View Clickage",
+             fillColor: "rgba(255,20,147,0.8)", // colorDarkPink fills in bar
              strokeColor: "rgba(255,255,0,0.8)", // outline of bar, yellow
-             highlightFill: "rgba(220,220,220,0.75)",
-             highlightStroke: "rgba(255,165,0,1)",
+             highlightFill: "rgba(220,220,220,0.8)",
+             highlightStroke: "rgba(255,165,0,1)", //changed color, to orange. but NOT seeing change.
              scaleGridLineColor: "rgba(255,69,0,0.5)",      //Colour of the grid lines, Added these/
              scaleGridLineWidth : 8, // added this after.
+             scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", //no changes
+              scaleFontSize: 20, // no changes :(
              data: []
          }
      ]
  };
 
  function buildData() {
- data.datasets[0].data = [];  // helps remove reholding allProduct data eacch time.
+ data.datasets[0].data = [];  // helps remove reholding or populating. allProduct data eacch time.
    for(var i = 0; i < allProducts.length; i ++) {
     data.datasets[0].data.push(allProducts[i].tally);
    }
