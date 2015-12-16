@@ -1,3 +1,38 @@
+//Creating a chart here.
+var canvas = document.getElementById("myChart");
+//
+ var data = {
+     labels: ["bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "unicorn", "water_can", "wine_glass"],
+     datasets: [
+         {
+            label: "View Clickage",
+             fillColor: "rgba(255,20,147,0.8)", // colorDarkPink fills in bar
+             strokeColor: "rgba(255,255,0,0.8)", // outline of bar, yellow
+             highlightFill: "rgba(220,220,220,0.8)",
+             highlightStroke: "rgba(255,165,0,1)", //changed color, to orange. but NOT seeing change.
+             scaleGridLineColor: "rgba(255,69,0,0.5)",      //Colour of the grid lines, Added these/
+             scaleGridLineWidth : 8, // added this after.
+             scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", //no changes
+              scaleFontSize: 20, // no changes :(
+             data: []
+         }
+     ]
+ };
+
+ function buildData() {
+ data.datasets[0].data = [];  // helps remove reholding or populating. allProduct data eacch time.
+   for(var i = 0; i < allProducts.length; i ++) {
+    data.datasets[0].data.push(allProducts[i].tally);
+   }
+   var context = document.getElementById("myChart").getContext("2d");
+   var myBarChart = new Chart(context).Bar(data);
+ };
+
+canvas.onclick = function(event){
+   var activebars = myBarChart.getBarsAtEvent(event);
+
+ };
+
 /*Create one array to hold allProduct objects */
 var allProducts = [];
 
@@ -29,6 +64,7 @@ function Product(name, path) {
    leftObj: null,
    midObj: null,
    rightObj: null,
+   buttonResult: document.getElementById("results"),
 
    leftEl: document.getElementById("imgOne"),
    midEl: document.getElementById("imgTwo"),
@@ -65,17 +101,20 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
 /* //('there is no remainder when dividing the total clicks by 15)
         //use the hidden attribute of the button to show/hide
         //Trish: spend time with this */
+
     showResults: function() {
-    var buttonResult = document.getElementById("results");
-    console.log(buttonResult);
     console.log(productRank.totalClicks);
       if (productRank.totalClicks % 15 === 0) {
-        buttonResult.hidden = false;
+        productRank.buttonResult.hidden = false;
     } else {
-      buttonResult.hidden = true;
+      productRank.buttonResult.hidden = true;
     }
   }
 };
+
+ productRank.buttonResult.addEventListener('click', function(){
+   buildData();
+ });
 
 /* This is one of 3 event listeners you will need to write, which listens for clicks on each element */
 //eventListener 1
@@ -90,6 +129,8 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
   productRank.totalClicks += 1;
   productRank.displayImages();
   productRank.showResults();
+  buildData();
+  console.log(data.datasets[0].data);
 
 });
 
@@ -114,15 +155,17 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
 
 
 
-
-
-
-
-// function tallyVotes();
-// productRank.leftObj.tally += 1;
-// productRank.totalClicks +=1;
-// productRank.displayImages();
-//
-// productRank.midObj.tally += 1;
-//
-// product.rightObj.tally += 1;
+ // COPY AND PASTED THIS to save how it was originally written. I plan on playing around with the colors of it.
+ // var data = {
+ //     labels: ["bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "unicorn", "water_can", "wine_glass"],
+ //     datasets: [
+ //         {
+ //            label: "View Clickage",
+ //             fillColor: "rgba(220,220,220,0.5)",
+ //             strokeColor: "rgba(220,220,220,0.8)",
+ //             highlightFill: "rgba(220,220,220,0.75)",
+ //             highlightStroke: "rgba(220,220,220,1)",
+ //             data: []
+ //         }
+ //     ]
+ // };
