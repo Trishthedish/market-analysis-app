@@ -1,3 +1,37 @@
+//Creating a chart here.
+var canvas = document.getElementById("myChart");
+
+var data = {
+    labels: ["bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "unicorn", "water_can", "wine_glass"],
+    datasets: [
+        {
+            label: "View Clickage",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: []
+        }
+    ]
+};
+
+function buildData() {
+  for(var i = 0; i < allProducts.length; i ++) {
+  data.datasets[0].data.push(allProducts[i].tally);
+  }
+};
+
+var context = document.getElementById("myChart").getContext("2d");
+
+var myBarChart = new Chart(context).Bar(data);
+
+canvas.onclick = function(event){
+   var activebars = myBarChart.getBarsAtEvent(event);
+
+ };
+
+
+
 /*Create one array to hold allProduct objects */
 var allProducts = [];
 
@@ -90,6 +124,8 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
   productRank.totalClicks += 1;
   productRank.displayImages();
   productRank.showResults();
+  buildData();
+  console.log(data.datasets[0].data);
 
 });
 
@@ -109,8 +145,6 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
   productRank.showResults();
 
  });
-
-
 
 
 
