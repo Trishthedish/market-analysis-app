@@ -155,6 +155,14 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
 
 
 
+
+
+
+
+
+
+
+
  // COPY AND PASTED THIS to save how it was originally written. I plan on playing around with the colors of it.
  // var data = {
  //     labels: ["bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "unicorn", "water_can", "wine_glass"],
@@ -169,3 +177,19 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
  //         }
  //     ]
  // };
+
+
+///notes from class today
+//button was id of show results.
+// onClick: function() {
+//   if(event.target.id === productRank.leftObj.name || event.target.id === productRank ... productRank.tallyClicks.tallyClicks(event.target.id);
+//
+//     if(productRank.totalClicks % 15 === 0) {
+//       productRank.showButton();
+//     }
+//     productRank.displayImages();
+//     } else {
+//     console.log("Click the image idiot!")
+//     }
+//   }
+// };
