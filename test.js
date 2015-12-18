@@ -14,7 +14,7 @@ var canvas = document.getElementById("myChart");
              scaleGridLineWidth : 8, // added this after.
              scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", //no changes
               scaleFontSize: 20, // no changes :(
-             data: []
+             data: [],
          }
      ]
  };
@@ -30,7 +30,6 @@ var canvas = document.getElementById("myChart");
 
 canvas.onclick = function(event){
    var activebars = myBarChart.getBarsAtEvent(event);
-
  };
 
 /*Create one array to hold allProduct objects */
@@ -116,12 +115,41 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
    buildData();
  });
 
+
+//
+// function testLocalS() {
+// if (localStorage.data) {
+//     console.log("data exist")
+//   } else {
+//     console.log("its a trap!")
+//   }
+// }
+// localStorage.setItem("key", value);
+
+
+
+
+
+// function store() {
+//   var dataStore = getElementById("data");
+//   localStorage.setItem("", data.value);
+// }
+// function get() {
+//   var xxx = document.getElementById('?').value
+//   xxx = localStorage.getItem("")
+// }
+
+
+
+
+
 /* This is one of 3 event listeners you will need to write, which listens for clicks on each element */
-//eventListener 1
 // Building a function that will add up all the tayllyVotes for each obj/img
 ///Increment the object's tally property and productRank's total clicks by 1
 //call the displayImages method to reroll three new images.
-//DONT TRISH 85- 93.
+//DONT TRISH 85- 93 (aka delete, accidentally)
+
+//eventListener 1
   productRank.displayImages();
 
   productRank.leftEl.addEventListener('click', function(){
@@ -152,12 +180,11 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
  });
 
 
+//test if localStorage exists?
 
+    //if yes: use to make allProducts []
 
-
-
-
-
+//if no: buildAll() to make allProducts[]
 
 
 
@@ -193,3 +220,11 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
 //     }
 //   }
 // };
+// this is reccomended modernizer
+//
+// if (Modernizr.localstorage) {
+//   // window.localStorage is available!
+// } else {
+//   // no native support for HTML5 storage :(
+//   // maybe try dojox.storage or a third-party solution
+// }
