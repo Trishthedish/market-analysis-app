@@ -1,42 +1,42 @@
 //Creating a chart here.
-var canvas = document.getElementById("myChart");
+var canvas = document.getElementById('myChart');
 //
- var data = {
-     labels: ["bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "unicorn", "water_can", "wine_glass"],
-     datasets: [
-         {
-            label: "View Clickage",
-             fillColor: "rgba(255,20,147,0.8)", // colorDarkPink fills in bar
-             strokeColor: "rgba(255,255,0,0.8)", // outline of bar, yellow
-             highlightFill: "rgba(220,220,220,0.8)",
-             highlightStroke: "rgba(255,165,0,1)", //changed color, to orange. but NOT seeing change.
-             scaleGridLineColor: "rgba(255,69,0,0.5)",      //Colour of the grid lines, Added these/
-             scaleGridLineWidth : 8, // added this after.
-             scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", //no changes
-              scaleFontSize: 20, // no changes :(
-             data: [],
-         }
-     ]
- };
+var data = {
+  labels: ['bag', 'banana', 'boots', 'chair', 'cthulhu', 'dragon', 'pen', 'scissors', 'shark', 'unicorn', 'water_can', 'wine_glass'],
+  datasets: [
+    {
+      label: 'iew Clickage',
+      fillColor: 'gba(255,20,147,0.8)', // colorDarkPink fills in bar
+      strokeColor: 'gba(255,255,0,0.8)', // outline of bar, yellow
+      highlightFill: 'gba(220,220,220,0.8)',
+      highlightStroke: 'gba(255,165,0,1)', //changed color, to orange. but NOT seeing change.
+      scaleGridLineColor: 'gba(255,69,0,0.5)',      //Colour of the grid lines, Added these/
+      scaleGridLineWidth : 8, // added this after.
+      scaleFontFamily: '"Helvetica Neue, Helvetica, Arial, sans-serif', //no changes
+      scaleFontSize: 20, // no changes :(
+      data: [],
+    }
+  ]
+};
 
- function buildData() {
- data.datasets[0].data = [];  // helps remove reholding or populating. allProduct data eacch time.
-   for(var i = 0; i < allProducts.length; i ++) {
+function buildData(){
+  data.datasets[0].data = [];  // helps remove reholding or populating. allProduct data eacch time.
+  for(var i = 0; i < allProducts.length; i ++) {
     data.datasets[0].data.push(allProducts[i].tally);
-   }
-   var context = document.getElementById("myChart").getContext("2d");
-   var myBarChart = new Chart(context).Bar(data);
- };
+  }
+  var context = document.getElementById('myChart').getContext('2d');
+  var myBarChart = new Chart(context).Bar(data);
+}
 
 canvas.onclick = function(event){
-   var activebars = myBarChart.getBarsAtEvent(event);
- };
+  var activebars = myBarChart.getBarsAtEvent(event);
+};
 
 /*Create one array to hold allProduct objects */
 var allProducts = [];
 
 /*Create one array to hold the string name values of each image */
-var productNames = ['bag', 'banana', 'boots', 'chair', 'cthulhu', 'dragon', 'pen', 'scissors', 'shark', 'unicorn', 'water_can', 'wine_glass' ] //
+var productNames = ['bag', 'banana', 'boots', 'chair', 'cthulhu', 'dragon', 'pen', 'scissors', 'shark', 'unicorn', 'water_can', 'wine_glass'];
 //lacking: "sweep.png", "usb.gif",
 
 
@@ -54,37 +54,37 @@ function Product(name, path) {
 (function buildAlbum() {  // creating objects, using IIFIE
   for (var i = 0; i < productNames.length; i ++) {
     new Product(productNames[i], 'images/' + productNames[i] + '.jpg');
-    }
+  }
 })();
 
 /* Object Literal Notation (Singular instance of an Object. Set the properties & values for the data you want to track; totalClicks, product objects, and html elements. )*/
- var productRank = {
-   totalClicks: 0,
-   leftObj: null,
-   midObj: null,
-   rightObj: null,
-   buttonResult: document.getElementById("results"),
+var productRank = {
+  totalClicks: 0,
+  leftObj: null,
+  midObj: null,
+  rightObj: null,
+  buttonResult: document.getElementById('results'),
 
-   leftEl: document.getElementById("imgOne"),
-   midEl: document.getElementById("imgTwo"),
-   rightEl: document.getElementById("imgThree"),
+  leftEl: document.getElementById('imgOne'),
+  midEl: document.getElementById('imgTwo'),
+  rightEl: document.getElementById('imgThree'),
 
 /* Get a random number b/n 0 and the length of your productNames array(line5)*/
-   getRandomIndex: function() {
-     return Math.floor(Math.random() * productNames.length);
-   },
+  getRandomIndex: function() {
+    return Math.floor(Math.random() * productNames.length);
+  },
 
 /* Get three random objects and assign them to the object properties for each of the three you've already defined.*/
-   displayImages: function() {
+  displayImages: function() {
     this.leftObj = allProducts[this.getRandomIndex()];
     this.midObj = allProducts[this.getRandomIndex()];
     this.rightObj = allProducts[this.getRandomIndex()];
 
 /*if('There are any duplicate image objects assigned') {
 //Reroll the displayImages method.} */
-if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midObj === this.rightObj) {
-    this.displayImages();
-}
+    if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midObj === this.rightObj) {
+      this.displayImages();
+    }
 /*Assign & src and id each element using path & name of each related object */
     productRank.leftEl.src = productRank.leftObj.path;
     productRank.leftEl.id = productRank.leftObj.name;
@@ -101,19 +101,19 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
         //use the hidden attribute of the button to show/hide
         //Trish: spend time with this */
 
-    showResults: function() {
+  showResults: function() {
     console.log(productRank.totalClicks);
-      if (productRank.totalClicks % 15 === 0) {
-        productRank.buttonResult.hidden = false;
+    if (productRank.totalClicks % 15 === 0) {
+      productRank.buttonResult.hidden = false;
     } else {
       productRank.buttonResult.hidden = true;
     }
   }
 };
 
- productRank.buttonResult.addEventListener('click', function(){
-   buildData();
- });
+productRank.buttonResult.addEventListener('click', function(){
+  buildData();
+});
 
 
 //
@@ -150,9 +150,9 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
 //DONT TRISH 85- 93 (aka delete, accidentally)
 
 //eventListener 1
-  productRank.displayImages();
+productRank.displayImages();
 
-  productRank.leftEl.addEventListener('click', function(){
+productRank.leftEl.addEventListener('click', function(){
   productRank.leftObj.tally += 1;
   productRank.totalClicks += 1;
   productRank.displayImages();
@@ -163,21 +163,21 @@ if (this.leftObj === this.midObj || this.leftObj === this.rightObj || this.midOb
 });
 
 //eventListener 2
-  productRank.midEl.addEventListener('click', function(){
+productRank.midEl.addEventListener('click', function(){
   productRank.midObj.tally += 1;
   productRank.totalClicks += 1;
   productRank.displayImages();
   productRank.showResults();
- });
+});
 
 // //eventListener 3
-  productRank.rightEl.addEventListener('click', function(){
+productRank.rightEl.addEventListener('click', function(){
   productRank.rightObj.tally += 1;
   productRank.totalClicks += 1;
   productRank.displayImages();
   productRank.showResults();
 
- });
+});
 
 
 //test if localStorage exists?
