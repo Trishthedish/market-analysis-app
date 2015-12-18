@@ -1,0 +1,11 @@
+.git/**
+img/**
+.gitignore
+.eslintrc
+.eslintignore
+chart.js
+index.html
+README.md
+style.css
+app.js
+Skeleton/**
